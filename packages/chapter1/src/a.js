@@ -40,12 +40,15 @@ Worker.prototype.work = function () {
   this._health--;
 };
 //- 여기에 코드를 작성하세요
+JuniorEngineer.prototype = Object.create(Worker.prototype);
+JuniorEngineer.prototype.constructor = JuniorEngineer;
+
 JuniorEngineer.prototype._super = function (health) {
-  if (!this.worker) {
-    this.worker = new Worker(health);
+  if (!this.superClass) {
+    this.superClass = new this.__proto__.__proto__.constructor(health);
   }
 
-  return this.worker;
+  return this.superClass;
 };
 
 JuniorEngineer.prototype.getHealth = function () {
