@@ -44,11 +44,11 @@ JuniorEngineer.prototype = Object.create(Worker.prototype);
 JuniorEngineer.prototype.constructor = JuniorEngineer;
 
 JuniorEngineer.prototype._super = function (health) {
-  if (!this.superClass) {
-    this.superClass = new this.__proto__.__proto__.constructor(health);
+  if (!this.super) {
+    this.super = new this.__proto__.__proto__.constructor(health);
   }
 
-  return this.superClass;
+  return this.super;
 };
 
 JuniorEngineer.prototype.getHealth = function () {
