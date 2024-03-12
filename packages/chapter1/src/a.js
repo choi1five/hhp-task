@@ -47,12 +47,16 @@ JuniorEngineer.prototype._super = function (health) {
   return Worker.call(this, health);
 };
 
+JuniorEngineer.prototype._superMethod = function (method) {
+  return this.__proto__.__proto__[method].call(this);
+};
+
 JuniorEngineer.prototype.getIntelligence = function () {
   return this._intelligence;
 };
 
 JuniorEngineer.prototype.work = function () {
-  this.__proto__.__proto__.work.call(this);
+  this._superMethod("work");
   this._intelligence++;
 };
 
