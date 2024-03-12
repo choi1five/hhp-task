@@ -44,15 +44,7 @@ JuniorEngineer.prototype = Object.create(Worker.prototype);
 JuniorEngineer.prototype.constructor = JuniorEngineer;
 
 JuniorEngineer.prototype._super = function (health) {
-  if (!this.super) {
-    this.super = new this.__proto__.__proto__.constructor(health);
-  }
-
-  return this.super;
-};
-
-JuniorEngineer.prototype.getHealth = function () {
-  return this._super().getHealth();
+  return Worker.call(this, health);
 };
 
 JuniorEngineer.prototype.getIntelligence = function () {
@@ -60,7 +52,7 @@ JuniorEngineer.prototype.getIntelligence = function () {
 };
 
 JuniorEngineer.prototype.work = function () {
-  this._super().work();
+  this.__proto__.__proto__.work.call(this);
   this._intelligence++;
 };
 
@@ -102,6 +94,19 @@ JuniorEngineer.prototype.isBornGenius = function () {
 // }
 
 // main();
+
+// const a = new JuniorEngineer();
+
+// a.work();
+// a.getHealth();
+// a.work();
+
+// const b = new JuniorEngineer();
+
+// b.work();
+// b.work();
+// b.getHealth();
+// b.work();
 
 module.exports = {
   Worker,
