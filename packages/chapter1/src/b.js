@@ -37,16 +37,18 @@ class HardWork {
 
     const processChunk = () => {
       for (let i = 0; i < Math.min(chunkSize, this._tasks.length - processedCount); i++) {
+        console.log(processedCount + i);
         this._tasks[processedCount + i]();
       }
+
       processedCount += chunkSize;
 
       if (processedCount < this._tasks.length) {
-        requestAnimationFrame(processChunk);
+        requestIdleCallback(processChunk);
       }
     };
 
-    processChunk();
+    requestIdleCallback(processChunk);
   }
 
   // do() 이외의 메서드는 수정하지마세요
