@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node lib/server.mjs",
     "test:1a": "jest src/a.test.js",
-    "test:1a2": "node src/a.js"
+    "test:1a2": "node src/a.mjs"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
