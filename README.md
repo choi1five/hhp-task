@@ -1,3 +1,5 @@
+## 코드 링크 ( https://github.com/choi1five/hhp-task/blob/week02/taskA/packages/chapter2/src/render.js )
+
 ## 고민 및 접근 방향
 
 - jsx는 어떤 역할을 해야하나?
